@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: product-service-ingress
+  namespace: default
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+  - host: jmaksgl.eastus2.cloudapp.azure.com
+    http:
+      paths:
+      - path: /blog
+        pathType: Prefix
+        backend:
+          service:
+            name: blogservice
+            port:
+              number: 80
+      - path: /store
+        pathType: Prefix
+        backend:
+          service:
+            name: storeservice
+            port:
+              number: 80

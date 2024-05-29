@@ -132,8 +132,8 @@ kubectl logs -f <pod-name> -n ingress-basic
 ```bash
 # musimy pobrać identyfikator klastra K8s
 AKS_ID=$(az aks show \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group ${MY_RESOURCE_GROUP_NAME} \
+    --name ${AKS_NAME} \
     --query id -o tsv)
 
 # następnie tworzymy grupę w Entra ID for application developers
